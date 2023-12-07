@@ -4,16 +4,16 @@ export default class CustomVisitor extends CalculadoraVisitor {
 
 	// Visit a parse tree produced by CalculadoraParser#file.
 	visitFile(ctx) {
-        console.log("Hola desde CustomVisitor");
-        console.log(this.visit(ctx.expr()));
-
+		console.log("Hola desde CustomVisitor");
+		//console.log(this.visit(ctx.expr()));
 	  	return this.visitChildren(ctx);
 	}
 
 	// Visit a parse tree produced by CalculadoraParser#timesDiv.
-	visitTimesDiv(ctx) {
+	visitMultidiv(ctx) {
 	  const operation_data = this.visitChildren(ctx)
-		if (ctx.operation.type === 3) {
+	  console.log(ctx.operation.type);
+		if (ctx.operation.type === 5) {
 			console.log("La operacion es una multiplicacion")
 			return operation_data[0] * operation_data[2];
 		}
@@ -26,14 +26,12 @@ export default class CustomVisitor extends CalculadoraVisitor {
 
 
 	// Visit a parse tree produced by CalculadoraParser#plusSubtraction.
-	visitPlusSubtraction(ctx) {
+	visitMasmenos(ctx) {
       //operation es un atributo en la gramatica
 
-      //Obtener el valor por arrays
-      //console.log(this.visit(ctx.expr(0)));
-
+	  console.log(ctx.operation.type);
       const operation_data = this.visitChildren(ctx)
-      if (ctx.operation.type === 1) {
+      if (ctx.operation.type === 3) {
         console.log("La operacion es una suma")
         return operation_data[0] + operation_data[2];
       }
@@ -45,20 +43,22 @@ export default class CustomVisitor extends CalculadoraVisitor {
 	}
 
 	// Visit a parse tree produced by CalculadoraParser#implicitMultExpr.
-	visitImplicitMultExpr(ctx) {
+	visitMultiParentesis(ctx) {
+		console.log("multi")
 		let results = this.visitChildren(ctx)
 		return results[0] * results[1]
 	}
 
 	// Visit a parse tree produced by CalculadoraParser#parentheses.
-	visitParentheses(ctx) {
+	visitParentesis(ctx) {
+		console.log("parentesis")
 		let visit = this.visitChildren(ctx)
 		return visit[1]
 	}
 
 
 	// Visit a parse tree produced by CalculadoraParser#number.
-	visitNumber(ctx) {
+	visitNumero(ctx) {
     	console.log(Number(ctx.getText()));
 		return Number(ctx.getText());
 	}

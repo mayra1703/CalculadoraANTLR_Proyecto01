@@ -9,61 +9,69 @@ const Page = () => {
   const inputChange = (e) => {
     const input= (e.target.value);
 
-  if(/^[0-9+\-*/(). \n\r]+$/.test(input)){
-    setExpressions(input);
-  }else{
-    setResult('Error de sintaxis')
-  }
+    if(/^[0-9+\-*/(). \n\r]+$/.test(input)){
+      setExpressions(input);
+    }else{
+      setResult('Solo se aceptan números')
+    }
   };
 
+  const addToOutput = (value) => {
+    setExpressions((prevOutput) => prevOutput + value);
+  }
+
   const analizador = () => {
+    
+      console.log(expressions);
       const calculatedResult = calcular(expressions);
       setResult(calculatedResult.toString());
     
   };
+
   const clearArea= ()=>{
     setExpressions('');
     setResult('');
   };
 
   return (
-    <main className='h-screen w-screen font-sans bg-sky-100 place-content-center'>
-      <section className='text-blue-950 font-bold text-center m-4'>
-        <h1 className='text-3xl'>Analizador Sintáctico</h1>
-        <h1 className='m-2 text-2xl'>Calculadora con ANTLR4</h1>
-        <h1 className='m-3 text-2xl'>Ilse Machado</h1>
-        <p className='bg-sky-300'>
-          Instrucciones de uso: Ingresa cualquier expresión aritmética dentro del cuadro de texto.
-          Solo reconoce números. Puedes calcular múltiples expresiones.
-        </p>
-        <p className='bg-sky-200'>¡Haz tu primer cálculo!</p>
-      </section>
-      <section className='flex justify-center items-center'>
-        <textarea
-          className='  border-dashed border-2 border-sky-700 w-full mt-4 ml-4 mr-4 pt-3 pr-3 pl-3'
-          value={expressions}
-          onChange={inputChange}
-          placeholder='Ingresa tus expresiones matemáticas separadas por un Enter'
-        />
-      </section>
-      <section className='flex justify-center items-center'>
-        <h2 className='text-blue-950 font-bold mt-4'>Resultados</h2>
-      </section>
-      <section className='flex justify-center items-center m-3 rounded-md'>
-        <textarea className=' border-dashed border-2 border-sky-700 w-full mt-4 ml-4 mr-4 pt-3 pr-3 pl-3 ' value={result} readOnly />
+    <main className='font-sans bg-sky-100 place-content-center'>
+      <section className='relative bg-darkBlue h-44'>
+        <textarea className='resize-none w-full text-light text-4xl text-right font-bold bg-darkBlue p-2 pr-5' value={result} readOnly></textarea>
+        <textarea className='resize-none absolute w-full text-lightYellow text-4xl text-right font-bold bg-darkBlue p-2 pr-5 bottom-0 right-0' placeholder='0' value={expressions}
+          onChange={inputChange}></textarea>
       </section>
 
-      <section className='flex justify-center items-center'>
-        <button
-          className='bg-sky-900 rounded-md p-3 shadow-lg hover:bg-sky-300 text-white m-3'
-          onClick={analizador}
-        >
-          Calcular
-        </button>
-        <button  className='bg-sky-900 rounded-md p-3 shadow-lg hover:bg-sky-300 text-white m-3'
-          onClick={clearArea}> 
-          Limpiar
-        </button>
+      <section className='text-blue-950 font-bold text-center m-4'>
+        <h1 className='m-3 text-2xl'>Calculadora Gramática</h1>
+        <p className='m-2 text-sm font-normal'>Ingresa una operacion aritmetica y observa el resultado</p>
+      </section>
+      
+      <section>
+        <div className='grid grid-cols-4 gap-5 mx-14 m-5 text-xl'>
+            <button className='bg-darkYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={clearArea}>CA</button>
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={() => addToOutput('(')}>(</button>
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={() => addToOutput(')')}>)</button>
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={() => addToOutput('/')}>/</button>
+            
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('7')}>7</button>
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('8')}>8</button>
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('9')}>9</button>
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={() => addToOutput('*')}>*</button>
+
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('4')}>4</button>
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('5')}>5</button>
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('6')}>6</button>
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={() => addToOutput('-')}>-</button>
+
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('1')}>1</button>
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('2')}>2</button>
+            <button className='bg-darkBlue rounded-md h-14 shadow-md text-lightYellow font-extrabold' onClick={() => addToOutput('3')}>3</button>
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={() => addToOutput('+')}>+</button>
+
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold col-span-2' onClick={() => addToOutput('0')}>0</button>
+            <button className='bg-lightYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold'>.</button>
+            <button className='bg-darkYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={analizador}>=</button>
+        </div>
       </section>
     </main>
   );
