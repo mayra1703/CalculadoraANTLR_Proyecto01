@@ -1,23 +1,22 @@
 grammar Calculadora;
+import CommonLexerRules;
 
-file: expr+;          
+file: stat+;          
 
-expr: 	
-	'('expr')'                        #parentesis
-    	|
-	expr expr			  #multiParentesis
-	|
-	// Operation es un atributo
-        expr operation=(TIMES|DIV) expr   #multidiv
+stat:   expr SPACES            # printExpr
         |
-        expr operation=(PLUS|MINUS) expr  #masmenos
+        ID '=' expr SPACES     # assign
         |
-        NUMBER              		  #numero
+        SPACES                 # blank
         ;
 
-PLUS    :   '+';
-MINUS   :   '-';
-TIMES   :   '*';
-DIV     :   '/';
-NUMBER  :   [0-9]+;
-SPACES  :   [ \t\r\n]+ -> skip;
+expr: 	expr op=('*'|'/') expr  # MulDiv
+        |
+        expr op=('+'|'-') expr  # AddSub
+        |
+        INT                     # int
+        |
+        ID                      # id
+        |
+        '(' expr ')'            # parens
+        ;

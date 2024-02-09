@@ -1,65 +1,82 @@
 import CalculadoraVisitor from "../grammar/CalculadoraVisitor.js";
+import CalculadoraParser from "../grammar/CalculadoraParser.js";
+import HashMap from 'hashmap';
+
+// This class defines a complete generic visitor for a parse tree produced by CalculadoraParser.
 
 export default class CustomVisitor extends CalculadoraVisitor {
 
+	constructor() {
+		super();
+		this.memory = new HashMap();
+	}
+
 	// Visit a parse tree produced by CalculadoraParser#file.
 	visitFile(ctx) {
-		console.log("Hola desde CustomVisitor");
-		//console.log(this.visit(ctx.expr()));
-	  	return this.visitChildren(ctx);
-	}
-
-	// Visit a parse tree produced by CalculadoraParser#timesDiv.
-	visitMultidiv(ctx) {
-	  const operation_data = this.visitChildren(ctx)
-	  console.log(ctx.operation.type);
-		if (ctx.operation.type === 5) {
-			console.log("La operacion es una multiplicacion")
-			return operation_data[0] * operation_data[2];
-		}
-    
-		else {
-			console.log("La operacion es una division")
-			return operation_data[0] / operation_data[2];
-		}
+	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by CalculadoraParser#plusSubtraction.
-	visitMasmenos(ctx) {
-      //operation es un atributo en la gramatica
-
-	  console.log(ctx.operation.type);
-      const operation_data = this.visitChildren(ctx)
-      if (ctx.operation.type === 3) {
-        console.log("La operacion es una suma")
-        return operation_data[0] + operation_data[2];
-      }
-      
-      else {
-        console.log("La operacion es una resta")
-        return operation_data[0] - operation_data[2];
-      }
-	}
-
-	// Visit a parse tree produced by CalculadoraParser#implicitMultExpr.
-	visitMultiParentesis(ctx) {
-		console.log("multi")
-		let results = this.visitChildren(ctx)
-		return results[0] * results[1]
-	}
-
-	// Visit a parse tree produced by CalculadoraParser#parentheses.
-	visitParentesis(ctx) {
-		console.log("parentesis")
-		let visit = this.visitChildren(ctx)
-		return visit[1]
+	// Visit a parse tree produced by CalculadoraParser#printExpr.
+	visitPrintExpr(ctx) {
+		const value = this.visit(ctx.expr());
+		console.log(value);
+	  	return `result = ${value}`;
 	}
 
 
-	// Visit a parse tree produced by CalculadoraParser#number.
-	visitNumero(ctx) {
-    	console.log(Number(ctx.getText()));
-		return Number(ctx.getText());
+	// Visit a parse tree produced by CalculadoraParser#assign.
+	visitAssign(ctx) {
+		const id = ctx.ID().getText();
+		const value = this.visit(ctx.expr());
+		this.memory.set(id, value);
+	  	return `${id} = ${value}`;
 	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#blank.
+	visitBlank(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#parens.
+	visitParens(ctx) {
+	  return this.visit(ctx.expr());
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#MulDiv.
+	visitMulDiv(ctx) {
+		const left = this.visit(ctx.expr(0));
+		const right = this.visit(ctx.expr(1));
+		if (ctx.op.type === CalculadoraParser.MUL) return left * right;
+	  	return Math.floor(left / right);	// Division Entera
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#AddSub.
+	visitAddSub(ctx) {
+		const left = this.visit(ctx.expr(0));
+		const right = this.visit(ctx.expr(1));
+		if (ctx.op.type === CalculadoraParser.ADD) return left + right;
+	  	return left - right;
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#id.
+	visitId(ctx) {
+		const id = ctx.ID().getText();
+		if (this.memory.has(id)) return this.memory.get(id);
+	  	return 0;
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#int.
+	visitInt(ctx) {
+	  return parseInt(ctx.INT().getText());
+	}
+
+
+
 }

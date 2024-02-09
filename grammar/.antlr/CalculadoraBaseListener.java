@@ -1,4 +1,4 @@
-// Generated from c:/Users/mayme/OneDrive/Desktop/sintactico-project/grammar/Calculadora.g4 by ANTLR 4.13.1
+// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica01/proyectoAutomatas/grammar/Calculadora.g4 by ANTLR 4.13.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -28,37 +28,61 @@ public class CalculadoraBaseListener implements CalculadoraListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTimesDiv(CalculadoraParser.TimesDivContext ctx) { }
+	@Override public void enterParentesis(CalculadoraParser.ParentesisContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTimesDiv(CalculadoraParser.TimesDivContext ctx) { }
+	@Override public void exitParentesis(CalculadoraParser.ParentesisContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumber(CalculadoraParser.NumberContext ctx) { }
+	@Override public void enterMultidiv(CalculadoraParser.MultidivContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNumber(CalculadoraParser.NumberContext ctx) { }
+	@Override public void exitMultidiv(CalculadoraParser.MultidivContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPlusSubtraction(CalculadoraParser.PlusSubtractionContext ctx) { }
+	@Override public void enterMasmenos(CalculadoraParser.MasmenosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPlusSubtraction(CalculadoraParser.PlusSubtractionContext ctx) { }
+	@Override public void exitMasmenos(CalculadoraParser.MasmenosContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumero(CalculadoraParser.NumeroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumero(CalculadoraParser.NumeroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMultiParentesis(CalculadoraParser.MultiParentesisContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMultiParentesis(CalculadoraParser.MultiParentesisContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

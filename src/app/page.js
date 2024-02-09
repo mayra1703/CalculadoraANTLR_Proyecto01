@@ -8,14 +8,8 @@ const Page = () => {
 
   const cambiarExpresion = (e) => {
     const input= (e.target.value);
-
-    if(/^[0-9+\-*/(). \n\r]+$/.test(input)){
-      setExpression(input);
-    }
+    setExpression(input);
     
-    else{
-      setResult('Solo se aceptan números')
-    }
   };
 
   const addNum = (value) => {
@@ -34,17 +28,19 @@ const Page = () => {
 
   return (
     <main className='font-sans bg-sky-100 place-content-center'>
-      <section className='relative bg-darkBlue h-44'>
-        <textarea className='resize-none w-full text-light text-4xl text-right font-bold bg-darkBlue p-2 pr-5' value={result} readOnly></textarea>
-        <textarea className='resize-none absolute w-full text-lightYellow text-4xl text-right font-bold bg-darkBlue p-2 pr-5 bottom-0 right-0' placeholder='0' value={expresion}
-          onChange={cambiarExpresion}></textarea>
-      </section>
 
       <section className='text-blue-950 font-bold text-center m-4'>
         <h1 className='m-3 text-2xl'>Calculadora Gramática</h1>
         <p className='m-2 text-sm font-normal'>Ingresa una operación aritmética y observa el resultado</p>
       </section>
+
+      <section className='relative bg-darkBlue h-44'>
+        <textarea className='resize-none absolute w-full h-full text-lightYellow text-4xl text-right font-bold bg-darkBlue p-2 pr-5 bottom-0 right-0' placeholder='0' value={expresion}
+          onChange={cambiarExpresion}></textarea>
+      </section>
       
+      <textarea className='resize-none w-full text-darkBlue text-xl text-center font-bold p-2 pr-5' value={`El resultado es: ${result}`} readOnly></textarea>
+        
       <section>
         <div className='grid grid-cols-4 gap-5 mx-14 m-5 text-xl'>
             <button className='bg-darkYellow rounded-md h-14 shadow-md text-darkBlue font-extrabold' onClick={clearArea}>CA</button>

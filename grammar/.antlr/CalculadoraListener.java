@@ -1,4 +1,4 @@
-// Generated from c:/Users/mayme/OneDrive/Desktop/sintactico-project/grammar/Calculadora.g4 by ANTLR 4.13.1
+// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica01/proyectoAutomatas/grammar/Calculadora.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -17,39 +17,63 @@ public interface CalculadoraListener extends ParseTreeListener {
 	 */
 	void exitFile(CalculadoraParser.FileContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code timesDiv}
+	 * Enter a parse tree produced by the {@code parentesis}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterTimesDiv(CalculadoraParser.TimesDivContext ctx);
+	void enterParentesis(CalculadoraParser.ParentesisContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code timesDiv}
+	 * Exit a parse tree produced by the {@code parentesis}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitTimesDiv(CalculadoraParser.TimesDivContext ctx);
+	void exitParentesis(CalculadoraParser.ParentesisContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code number}
+	 * Enter a parse tree produced by the {@code multidiv}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumber(CalculadoraParser.NumberContext ctx);
+	void enterMultidiv(CalculadoraParser.MultidivContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code number}
+	 * Exit a parse tree produced by the {@code multidiv}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumber(CalculadoraParser.NumberContext ctx);
+	void exitMultidiv(CalculadoraParser.MultidivContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code plusSubtraction}
+	 * Enter a parse tree produced by the {@code masmenos}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterPlusSubtraction(CalculadoraParser.PlusSubtractionContext ctx);
+	void enterMasmenos(CalculadoraParser.MasmenosContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code plusSubtraction}
+	 * Exit a parse tree produced by the {@code masmenos}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitPlusSubtraction(CalculadoraParser.PlusSubtractionContext ctx);
+	void exitMasmenos(CalculadoraParser.MasmenosContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code numero}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumero(CalculadoraParser.NumeroContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code numero}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumero(CalculadoraParser.NumeroContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code multiParentesis}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiParentesis(CalculadoraParser.MultiParentesisContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code multiParentesis}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiParentesis(CalculadoraParser.MultiParentesisContext ctx);
 }

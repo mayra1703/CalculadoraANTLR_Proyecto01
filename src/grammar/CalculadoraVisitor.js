@@ -12,32 +12,50 @@ export default class CalculadoraVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
-	// Visit a parse tree produced by CalculadoraParser#parentesis.
-	visitParentesis(ctx) {
+	// Visit a parse tree produced by CalculadoraParser#printExpr.
+	visitPrintExpr(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by CalculadoraParser#multidiv.
-	visitMultidiv(ctx) {
+	// Visit a parse tree produced by CalculadoraParser#assign.
+	visitAssign(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by CalculadoraParser#masmenos.
-	visitMasmenos(ctx) {
+	// Visit a parse tree produced by CalculadoraParser#blank.
+	visitBlank(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by CalculadoraParser#numero.
-	visitNumero(ctx) {
+	// Visit a parse tree produced by CalculadoraParser#parens.
+	visitParens(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by CalculadoraParser#multiParentesis.
-	visitMultiParentesis(ctx) {
+	// Visit a parse tree produced by CalculadoraParser#MulDiv.
+	visitMulDiv(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#AddSub.
+	visitAddSub(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#id.
+	visitId(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by CalculadoraParser#int.
+	visitInt(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
