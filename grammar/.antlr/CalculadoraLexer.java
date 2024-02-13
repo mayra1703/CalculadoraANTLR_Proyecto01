@@ -1,4 +1,4 @@
-// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica01/proyectoAutomatas/grammar/Calculadora.g4 by ANTLR 4.13.1
+// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica02/proyectoAutomatas/grammar/Calculadora.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

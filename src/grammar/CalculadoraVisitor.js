@@ -30,6 +30,12 @@ export default class CalculadoraVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
+	// Visit a parse tree produced by CalculadoraParser#implicitMult.
+	visitImplicitMult(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
 	// Visit a parse tree produced by CalculadoraParser#parens.
 	visitParens(ctx) {
 	  return this.visitChildren(ctx);

@@ -1,4 +1,4 @@
-// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica01/proyectoAutomatas/grammar/Calculadora.g4 by ANTLR 4.13.1
+// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica02/proyectoAutomatas/grammar/Calculadora.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -17,63 +17,99 @@ public interface CalculadoraListener extends ParseTreeListener {
 	 */
 	void exitFile(CalculadoraParser.FileContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code parentesis}
-	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * Enter a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link CalculadoraParser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void enterParentesis(CalculadoraParser.ParentesisContext ctx);
+	void enterPrintExpr(CalculadoraParser.PrintExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code parentesis}
-	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * Exit a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link CalculadoraParser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void exitParentesis(CalculadoraParser.ParentesisContext ctx);
+	void exitPrintExpr(CalculadoraParser.PrintExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code multidiv}
-	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * Enter a parse tree produced by the {@code assign}
+	 * labeled alternative in {@link CalculadoraParser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void enterMultidiv(CalculadoraParser.MultidivContext ctx);
+	void enterAssign(CalculadoraParser.AssignContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code multidiv}
-	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * Exit a parse tree produced by the {@code assign}
+	 * labeled alternative in {@link CalculadoraParser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void exitMultidiv(CalculadoraParser.MultidivContext ctx);
+	void exitAssign(CalculadoraParser.AssignContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code masmenos}
-	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * Enter a parse tree produced by the {@code blank}
+	 * labeled alternative in {@link CalculadoraParser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void enterMasmenos(CalculadoraParser.MasmenosContext ctx);
+	void enterBlank(CalculadoraParser.BlankContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code masmenos}
-	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * Exit a parse tree produced by the {@code blank}
+	 * labeled alternative in {@link CalculadoraParser#stat}.
 	 * @param ctx the parse tree
 	 */
-	void exitMasmenos(CalculadoraParser.MasmenosContext ctx);
+	void exitBlank(CalculadoraParser.BlankContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code numero}
+	 * Enter a parse tree produced by the {@code parens}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumero(CalculadoraParser.NumeroContext ctx);
+	void enterParens(CalculadoraParser.ParensContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code numero}
+	 * Exit a parse tree produced by the {@code parens}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumero(CalculadoraParser.NumeroContext ctx);
+	void exitParens(CalculadoraParser.ParensContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code multiParentesis}
+	 * Enter a parse tree produced by the {@code MulDiv}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterMultiParentesis(CalculadoraParser.MultiParentesisContext ctx);
+	void enterMulDiv(CalculadoraParser.MulDivContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code multiParentesis}
+	 * Exit a parse tree produced by the {@code MulDiv}
 	 * labeled alternative in {@link CalculadoraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitMultiParentesis(CalculadoraParser.MultiParentesisContext ctx);
+	void exitMulDiv(CalculadoraParser.MulDivContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AddSub}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddSub(CalculadoraParser.AddSubContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AddSub}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddSub(CalculadoraParser.AddSubContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code id}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterId(CalculadoraParser.IdContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code id}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitId(CalculadoraParser.IdContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code int}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterInt(CalculadoraParser.IntContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code int}
+	 * labeled alternative in {@link CalculadoraParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitInt(CalculadoraParser.IntContext ctx);
 }

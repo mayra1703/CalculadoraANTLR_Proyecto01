@@ -19,4 +19,6 @@ expr: 	expr op=('*'|'/') expr  # MulDiv
         ID                      # id
         |
         '(' expr ')'            # parens
+        |
+        expr expr              #implicitMult
         ;

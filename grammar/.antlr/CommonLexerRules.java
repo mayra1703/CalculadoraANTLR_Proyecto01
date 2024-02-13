@@ -1,4 +1,4 @@
-// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica01/proyectoAutomatas/grammar/CommonLexerRules.g4 by ANTLR 4.13.1
+// Generated from c:/Users/mayme/OneDrive/Desktop/automatas2/practica02/proyectoAutomatas/grammar/CommonLexerRules.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -112,7 +112,7 @@ public class CommonLexerRules extends Lexer {
 		"\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0006\u0001\u0006\u0001"+
 		"\u0007\u0001\u0007\u0000\u0000\b\u0001\u0001\u0003\u0002\u0005\u0003\u0007"+
 		"\u0004\t\u0005\u000b\u0006\r\u0007\u000f\b\u0001\u0000\u0003\u0002\u0000"+
-		"AZaz\u0001\u000009\u0002\u0000\t\n\r\r2\u0000\u0001\u0001\u0000\u0000"+
+		"AZaz\u0001\u000009\u0003\u0000\t\n\r\r  2\u0000\u0001\u0001\u0000\u0000"+
 		"\u0000\u0000\u0003\u0001\u0000\u0000\u0000\u0000\u0005\u0001\u0000\u0000"+
 		"\u0000\u0000\u0007\u0001\u0000\u0000\u0000\u0000\t\u0001\u0000\u0000\u0000"+
 		"\u0000\u000b\u0001\u0000\u0000\u0000\u0000\r\u0001\u0000\u0000\u0000\u0000"+

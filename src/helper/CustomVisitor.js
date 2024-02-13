@@ -21,7 +21,7 @@ export default class CustomVisitor extends CalculadoraVisitor {
 	visitPrintExpr(ctx) {
 		const value = this.visit(ctx.expr());
 		console.log(value);
-	  	return `result = ${value}`;
+		return value;
 	}
 
 
@@ -37,6 +37,12 @@ export default class CustomVisitor extends CalculadoraVisitor {
 	// Visit a parse tree produced by CalculadoraParser#blank.
 	visitBlank(ctx) {
 	  return this.visitChildren(ctx);
+	}
+
+	// Visit a parse tree produced by CalculadoraParser#implicitMult.
+	visitImplicitMult(ctx) {
+		let results = this.visitChildren(ctx)
+		return results[0] * results[1];
 	}
 
 
